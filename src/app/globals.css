@@ -1,0 +1,91 @@
+/* src/app/globals.css */
+/* ─── Google Fonts ─── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400&family=Syne:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─── */
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #161616;
+  --surface: #1a1a1a;
+  --surface2: #222222;
+  --maroon: #8B1A1A;
+  --maroon2: #A52020;
+  --maroon-light: #C93030;
+  --gold: #c9a96e;
+  --text: #f0ece4;
+  --text2: #9a9590;
+  --text3: #5a5550;
+  --border: rgba(255, 255, 255, 0.06);
+  --border2: rgba(255, 255, 255, 0.1);
+  --font-syne: 'Syne', sans-serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-dm-mono: 'DM Mono', monospace;
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-syne);
+  min-height: 100vh;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(139, 26, 26, 0.3);
+  color: var(--text);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--maroon); }
+
+/* ─── Utility classes ─── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .noise-bg {
+    position: relative;
+  }
+  .noise-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .maroon-glow {
+    box-shadow: 0 0 60px rgba(139, 26, 26, 0.12);
+  }
+
+  .gold-text {
+    color: var(--gold);
+  }
+}

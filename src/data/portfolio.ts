@@ -5,43 +5,61 @@
 
 import type { PortfolioData } from "@/types";
 
-// Static data loaded at build time from JSON
-// Note: For server-side data loading, import directly from portfolio-server.ts in API routes only
-// This is used for backward compatibility
+// Legacy fallback used by metadata and other static consumers.
+// The homepage loads editable content from portfolio.json via portfolio-server.ts.
 const portfolioDataRaw = {
   config: {
     title: "Ivanna Putri — Frontend Developer",
-    description: "Frontend Developer specializing in React, Next.js, and crafting premium UI experiences.",
+    description:
+      "Frontend Developer specializing in React, Next.js, and crafting premium UI experiences.",
     accentColor: "#8B1A1A",
     seoDescription:
       "Frontend Developer based in Surabaya, Indonesia. Specializing in React, Next.js, TypeScript, and motion design.",
     githubUsername: "Ivanna-Mi",
     githubToken: "",
-    pinnedRepos: ["TPM-Final-Project", "LnTMiniProject", "Mini-Project-2"],
+    pinnedRepos: ["TPM-Final-Project", "Cafe Management", "Cafe Management"],
   },
   profile: {
     name: "Ivanna",
     nameItalic: "Putri",
-    role: ["Frontend Developer", "React Specialist", "Next.js Developer"],
-    tagline: "Crafting high-performance interfaces with obsessive attention to detail.",
+    role: ["Frontend Developer", "React Specialist"],
+    tagline:
+      "Crafting high-performance interfaces with extra attention to details.",
     bio: "I turn complex ideas into elegant, pixel-perfect digital experiences. Based in Surabaya, Indonesia — working globally.",
-    photoUrl: "https://cdn.phototourl.com/free/2026-04-17-0c1fbdd6-b1c5-4308-ba9b-32e5bf1f3a63.jpg",
+    photoUrl:
+      "https://cdn.phototourl.com/free/2026-04-17-0c1fbdd6-b1c5-4308-ba9b-32e5bf1f3a63.jpg",
     resumeUrl: "/resume.pdf",
     available: true,
-    stats: { years: 3, projects: 24, clients: 12 },
+    stats: { years: 3, projects: 10, language: 7 },
   },
   about: {
     description:
       "Frontend developer with 2+ years building production-grade applications. I obsess over the intersection of engineering and design — writing clean, maintainable code that also looks exceptional. Currently focusing on React/Next.js ecosystems, component architecture, and performance optimization.",
     experience:
       "Worked with early-stage startups and established companies across fintech, e-commerce, and SaaS verticals. From building design systems from scratch to optimizing Core Web Vitals on high-traffic platforms.",
-    focus: ["Component Architecture", "UI/UX Implementation", "Performance", "Design Systems", "Accessibility"],
+    focus: [
+      "Component Architecture",
+      "UI/UX Implementation",
+      "Performance",
+      "Design Systems",
+      "Accessibility",
+    ],
   },
   skills: [
     { id: "react", name: "React", category: "frontend", featured: true },
     { id: "nextjs", name: "Next.js", category: "frontend", featured: true },
-    { id: "typescript", name: "TypeScript", category: "frontend", featured: true },
-    { id: "tailwind", name: "Tailwind CSS", category: "frontend", featured: true },
+    {
+      id: "typescript",
+      name: "TypeScript",
+      category: "frontend",
+      featured: true,
+    },
+    {
+      id: "tailwind",
+      name: "Tailwind CSS",
+      category: "frontend",
+      featured: true,
+    },
     { id: "javascript", name: "JavaScript", category: "frontend" },
     { id: "html5", name: "HTML5", category: "frontend" },
     { id: "css3", name: "CSS3", category: "frontend" },
@@ -56,9 +74,27 @@ const portfolioDataRaw = {
   ],
   projects: [],
   socials: [
-    { id: "email", platform: "email", label: "Email", value: "mailto:ivannaparamitha@gmail.com", displayValue: "ivannaparamitha@gmail.com" },
-    { id: "linkedin", platform: "linkedin", label: "LinkedIn", value: "https://www.linkedin.com/in/ivanna-putri-1b4aaa289/", displayValue: "/in/ivanna-putri" },
-    { id: "github", platform: "github", label: "GitHub", value: "https://github.com/Ivanna-Mi", displayValue: "github.com/Ivanna-Mi" },
+    {
+      id: "email",
+      platform: "email",
+      label: "Email",
+      value: "mailto:ivannaparamitha@gmail.com",
+      displayValue: "ivannaparamitha@gmail.com",
+    },
+    {
+      id: "linkedin",
+      platform: "linkedin",
+      label: "LinkedIn",
+      value: "https://www.linkedin.com/in/ivanna-putri-1b4aaa289/",
+      displayValue: "/in/ivanna-putri",
+    },
+    {
+      id: "github",
+      platform: "github",
+      label: "GitHub",
+      value: "https://github.com/Ivanna-Mi",
+      displayValue: "github.com/Ivanna-Mi",
+    },
   ],
 };
 

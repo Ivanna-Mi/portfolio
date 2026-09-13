@@ -3,7 +3,7 @@
 export interface Profile {
   name: string;
   nameItalic: string; // Last name rendered in italic serif
-  role: string[];     // Multiple roles for typing animation
+  role: string[]; // Multiple roles for typing animation
   tagline: string;
   bio: string;
   photoUrl: string;
@@ -12,7 +12,7 @@ export interface Profile {
   stats: {
     years: number;
     projects: number;
-    clients: number;
+    language: number;
   };
 }
 
@@ -20,6 +20,16 @@ export interface AboutSection {
   description: string;
   experience: string;
   focus: string[];
+  organizations?: OrganizationExperience[];
+}
+
+export interface OrganizationExperience {
+  id: string;
+  organization: string;
+  role: string;
+  duration: string;
+  description: string;
+  image?: string;
 }
 
 export interface Skill {
@@ -46,7 +56,13 @@ export interface Project {
 
 export interface SocialLink {
   id: string;
-  platform: "email" | "linkedin" | "github" | "instagram" | "whatsapp" | "twitter";
+  platform:
+    | "email"
+    | "linkedin"
+    | "github"
+    | "instagram"
+    | "whatsapp"
+    | "twitter";
   label: string;
   value: string; // URL or handle
   displayValue: string;

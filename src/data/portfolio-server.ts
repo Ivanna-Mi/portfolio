@@ -12,7 +12,7 @@ let cachedData: PortfolioData | null = null;
 
 export async function loadPortfolioData(): Promise<PortfolioData> {
   if (cachedData) return cachedData;
-  
+
   try {
     const fileData = await fs.readFile(dataFilePath, "utf8");
     cachedData = JSON.parse(fileData) as PortfolioData;
@@ -21,4 +21,8 @@ export async function loadPortfolioData(): Promise<PortfolioData> {
     console.error("Failed to load portfolio data:", error);
     throw new Error("Failed to load portfolio data");
   }
+}
+
+export function clearPortfolioDataCache() {
+  cachedData = null;
 }

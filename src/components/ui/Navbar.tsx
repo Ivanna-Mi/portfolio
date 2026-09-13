@@ -33,7 +33,7 @@ export function Navbar({ name }: NavbarProps) {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "border-b border-[var(--border)] backdrop-blur-md bg-[rgba(10,10,10,0.85)]"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -82,14 +82,14 @@ export function Navbar({ name }: NavbarProps) {
       <div
         className={cn(
           "fixed inset-0 z-40 transition-all duration-300 md:hidden",
-          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
       >
         {/* Backdrop */}
         <div
           className={cn(
             "absolute inset-0 bg-[rgba(10,10,10,0.95)] backdrop-blur-md transition-opacity duration-300",
-            mobileOpen ? "opacity-100" : "opacity-0"
+            mobileOpen ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setMobileOpen(false)}
         />
@@ -98,7 +98,9 @@ export function Navbar({ name }: NavbarProps) {
         <div
           className={cn(
             "absolute top-16 left-0 right-0 border-b border-[var(--border)] bg-[var(--bg)] px-6 py-8 transition-all duration-300",
-            mobileOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+            mobileOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0",
           )}
         >
           <nav className="flex flex-col gap-6">

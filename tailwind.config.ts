@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-syne)", "sans-serif"],
-        serif: ["var(--font-cormorant)", "serif"],
-        mono: ["var(--font-dm-mono)", "monospace"],
+        sans: ["var(--font-cutive-mono)", "monospace"],
+        serif: ["var(--font-special-elite)", "system-ui"],
+        mono: ["var(--font-cutive-mono)", "monospace"],
       },
       colors: {
         maroon: {

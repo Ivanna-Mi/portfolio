@@ -19,37 +19,30 @@ export function HeroSection({ profile }: HeroSectionProps) {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden noise-bg"
     >
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-
-      {/* Maroon radial glow */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-[rgba(139,26,26,0.06)] blur-[120px] pointer-events-none" />
+      {/* Newspaper background */}
+      <Image
+        src="/newspaper-background-concept (1).jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none scale-105 object-cover opacity-35 blur-[6px]"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[rgba(10,10,10,0.80)]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 items-center">
-
           {/* Left: Text Content */}
           <div>
-            {/* Available badge */}
-            {profile.available && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-[rgba(139,26,26,0.35)] bg-[rgba(139,26,26,0.08)]"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--maroon-light)] animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--maroon-light)]">
-                  Available for work
-                </span>
-              </motion.div>
-            )}
-
             {/* Name */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.7,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="font-serif text-[clamp(3.5rem,8vw,6.5rem)] font-light leading-[1.02] tracking-[-0.02em] mb-4"
             >
               {profile.name}
@@ -85,35 +78,6 @@ export function HeroSection({ profile }: HeroSectionProps) {
               {profile.tagline}
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.65 }}
-              className="flex flex-wrap gap-3 mb-14"
-            >
-              <a
-                href="#projects"
-                className="px-7 py-3 bg-[var(--maroon)] hover:bg-[var(--maroon2)] text-white font-sans font-medium text-[11px] uppercase tracking-[0.08em] rounded-sm transition-all duration-200 hover:shadow-[0_0_30px_rgba(139,26,26,0.3)]"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="px-7 py-3 border border-[var(--border2)] hover:border-[var(--text3)] text-[var(--text2)] hover:text-[var(--text)] font-sans font-medium text-[11px] uppercase tracking-[0.08em] rounded-sm transition-all duration-200"
-              >
-                Contact Me
-              </a>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="px-7 py-3 border border-[var(--border)] hover:border-[rgba(201,169,110,0.4)] text-[var(--text3)] hover:text-[var(--gold)] font-sans font-medium text-[11px] uppercase tracking-[0.08em] rounded-sm transition-all duration-200"
-              >
-                Download CV ↗
-              </a>
-            </motion.div>
-
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -123,8 +87,11 @@ export function HeroSection({ profile }: HeroSectionProps) {
             >
               {[
                 { num: `${profile.stats.years}+`, label: "Years exp" },
-                { num: `${profile.stats.projects}`, label: "Projects shipped" },
-                { num: `${profile.stats.clients}`, label: "Happy clients" },
+                { num: `${profile.stats.projects}+`, label: "Projects" },
+                {
+                  num: `${profile.stats.language}`,
+                  label: "Prog Language",
+                },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col gap-1">
                   <span className="font-serif text-4xl font-light text-[var(--text)] leading-none">
@@ -154,6 +121,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
                   src={profile.photoUrl}
                   alt={`${profile.name} ${profile.nameItalic}`}
                   fill
+                  sizes="(min-width: 1024px) 33vw, 0px"
                   className="object-cover grayscale contrast-110"
                   priority
                 />
@@ -164,7 +132,8 @@ export function HeroSection({ profile }: HeroSectionProps) {
                     <div className="absolute inset-0 rounded-full bg-[rgba(139,26,26,0.15)] blur-2xl scale-150" />
                     <div className="relative w-40 h-40 rounded-full border-2 border-[rgba(139,26,26,0.35)] bg-[var(--surface)] flex items-center justify-center">
                       <span className="font-serif text-5xl italic text-[var(--gold)] font-light">
-                        {profile.name[0]}{profile.nameItalic[0]}
+                        {profile.name[0]}
+                        {profile.nameItalic[0]}
                       </span>
                     </div>
                   </div>
@@ -189,7 +158,9 @@ export function HeroSection({ profile }: HeroSectionProps) {
         transition={{ delay: 1.2, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-[9px] text-[var(--text3)] uppercase tracking-widest">Scroll</span>
+        <span className="font-mono text-[9px] text-[var(--text3)] uppercase tracking-widest">
+          Scroll
+        </span>
         <div className="w-px h-12 bg-gradient-to-b from-[var(--text3)] to-transparent" />
       </motion.div>
     </section>

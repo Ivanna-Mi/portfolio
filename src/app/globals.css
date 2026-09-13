@@ -1,7 +1,5 @@
 /* src/app/globals.css */
 /* ─── Google Fonts ─── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400&family=Syne:wght@400;500;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,22 +11,23 @@
   --bg3: #161616;
   --surface: #1a1a1a;
   --surface2: #222222;
-  --maroon: #8B1A1A;
-  --maroon2: #A52020;
-  --maroon-light: #C93030;
+  --maroon: #8b1a1a;
+  --maroon2: #a52020;
+  --maroon-light: #c93030;
   --gold: #c9a96e;
   --text: #f0ece4;
   --text2: #9a9590;
   --text3: #5a5550;
   --border: rgba(255, 255, 255, 0.06);
   --border2: rgba(255, 255, 255, 0.1);
-  --font-syne: 'Syne', sans-serif;
-  --font-cormorant: 'Cormorant Garamond', serif;
-  --font-dm-mono: 'DM Mono', monospace;
+  --font-cutive-mono: "Cutive Mono", monospace;
+  --font-special-elite: "Special Elite", system-ui;
 }
 
 /* ─── Base Reset ─── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,7 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-syne);
+  font-family: var(--font-cutive-mono);
   min-height: 100vh;
 }
 
@@ -52,20 +51,32 @@ body {
 }
 
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--maroon); }
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maroon);
+}
 
 /* ─── Utility classes ─── */
 @layer utilities {
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
 
   .noise-bg {
     position: relative;
   }
   .noise-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     opacity: 0.025;
@@ -76,8 +87,8 @@ body {
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 

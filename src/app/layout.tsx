@@ -1,27 +1,20 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Syne, Cormorant_Garamond, DM_Mono } from "next/font/google";
+import { Cutive_Mono, Special_Elite } from "next/font/google";
 import "./globals.css";
 import { portfolioData } from "@/data/portfolio";
 
-const syne = Syne({
+const cutiveMono = Cutive_Mono({
   subsets: ["latin"],
-  variable: "--font-syne",
+  weight: "400",
+  variable: "--font-cutive-mono",
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+const specialElite = Special_Elite({
   subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  variable: "--font-dm-mono",
+  weight: "400",
+  variable: "--font-special-elite",
   display: "swap",
 });
 
@@ -33,7 +26,14 @@ export const metadata: Metadata = {
     template: `%s | ${profile.name} ${profile.nameItalic.replace(".", "")}`,
   },
   description: config.seoDescription,
-  keywords: ["frontend developer", "react", "nextjs", "typescript", "portfolio", "indonesia"],
+  keywords: [
+    "frontend developer",
+    "react",
+    "nextjs",
+    "typescript",
+    "portfolio",
+    "indonesia",
+  ],
   authors: [{ name: `${profile.name} ${profile.nameItalic.replace(".", "")}` }],
   openGraph: {
     title: config.title,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: {url: "/icon.png", type: "image/png"},
+    icon: { url: "/icon.png", type: "image/png" },
   },
 };
 
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${cormorant.variable} ${dmMono.variable}`}
+      className={`${cutiveMono.variable} ${specialElite.variable}`}
     >
       <body className="font-sans antialiased">{children}</body>
     </html>

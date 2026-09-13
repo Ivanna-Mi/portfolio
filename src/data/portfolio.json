@@ -16,20 +16,16 @@
   "profile": {
     "name": "Ivanna",
     "nameItalic": "Putri",
-    "role": [
-      "Frontend Developer",
-      "React Specialist",
-      "Next.js Developer"
-    ],
-    "tagline": "Crafting high-performance interfaces with obsessive attention to detail.",
+    "role": ["Frontend Developer", "React Specialist"],
+    "tagline": "Crafting high-performance interfaces with extra attention to details.",
     "bio": "I turn complex ideas into elegant, pixel-perfect digital experiences. Based in Surabaya, Indonesia — working globally.",
     "photoUrl": "https://cdn.phototourl.com/free/2026-04-17-0c1fbdd6-b1c5-4308-ba9b-32e5bf1f3a63.jpg",
     "resumeUrl": "/resume.pdf",
     "available": true,
     "stats": {
       "years": 3,
-      "projects": 24,
-      "clients": 12
+      "projects": 10,
+      "language": 7
     }
   },
   "about": {

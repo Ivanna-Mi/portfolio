@@ -1,6 +1,9 @@
 // src/app/api/portfolio/route.ts
 import { NextResponse } from "next/server";
-import { loadPortfolioData } from "@/data/portfolio-server";
+import {
+  clearPortfolioDataCache,
+  loadPortfolioData,
+} from "@/data/portfolio-server";
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -11,7 +14,10 @@ export async function GET() {
     const data = await loadPortfolioData();
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to read portfolio data" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to read portfolio data" },
+      { status: 500 },
+    );
   }
 }
 
@@ -19,8 +25,12 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf8");
+    clearPortfolioDataCache();
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to save portfolio data" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to save portfolio data" },
+      { status: 500 },
+    );
   }
 }

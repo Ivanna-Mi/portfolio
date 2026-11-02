@@ -17,6 +17,7 @@ const certificateImages = [
   "Ivanna Putri P (1).png",
   "Ivanna Putri Paramitha.png",
   "Ivanna Putri Paramitha_page-0001.jpg",
+  "Ivanna Putri Paramitha_page-0001 (1).jpg",
 ];
 
 export function SkillsSection({ skills }: SkillsSectionProps) {

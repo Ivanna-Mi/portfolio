@@ -22,14 +22,14 @@ const portfolioDataRaw = {
   profile: {
     name: "Ivanna",
     nameItalic: "Putri",
-    role: ["Frontend Developer", "React Specialist"],
+    role: ["Frontend Developer", "React Specialist", "Backend Developer"],
     tagline:
       "Crafting high-performance interfaces with extra attention to details.",
     bio: "I turn complex ideas into elegant, pixel-perfect digital experiences. Based in Surabaya, Indonesia — working globally.",
     photoUrl: "/profile_photo.jpeg",
     resumeUrl: "/resume.pdf",
     available: true,
-    stats: { years: 3, projects: 10, language: 7 },
+    stats: { years: 2, projects: 10, language: 7 },
   },
   about: {
     description:

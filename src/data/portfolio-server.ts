@@ -9,13 +9,18 @@ import path from "path";
 const dataFilePath = path.join(process.cwd(), "src", "data", "portfolio.json");
 
 let cachedData: PortfolioData | null = null;
+let cachedModifiedTime: number | null = null;
 
 export async function loadPortfolioData(): Promise<PortfolioData> {
-  if (cachedData) return cachedData;
-
   try {
+    const fileStats = await fs.stat(dataFilePath);
+    if (cachedData && cachedModifiedTime === fileStats.mtimeMs) {
+      return cachedData;
+    }
+
     const fileData = await fs.readFile(dataFilePath, "utf8");
     cachedData = JSON.parse(fileData) as PortfolioData;
+    cachedModifiedTime = fileStats.mtimeMs;
     return cachedData;
   } catch (error) {
     console.error("Failed to load portfolio data:", error);
@@ -25,4 +30,5 @@ export async function loadPortfolioData(): Promise<PortfolioData> {
 
 export function clearPortfolioDataCache() {
   cachedData = null;
+  cachedModifiedTime = null;
 }

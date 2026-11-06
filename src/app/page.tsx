@@ -10,6 +10,8 @@ import { IntroOverlay } from "@/components/ui/IntroOverlay";
 import { loadPortfolioData } from "@/data/portfolio-server";
 import { fetchGitHubRepos } from "@/lib/github";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const { profile, about, skills, projects, socials, config } =
     await loadPortfolioData();
